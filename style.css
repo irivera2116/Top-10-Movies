@@ -1,0 +1,13 @@
+h1,h2 {
+    font-size: 70px;
+    font-weight: 400;
+    margin-bottom: 2%;
+    background-color:#313131;
+    color:#fa6914;
+}
+body{
+    background-color:#313131;
+}
+h5{
+    color: #fa6914;
+}
