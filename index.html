@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="skeleton\skeleton.css">
-    <link rel="stylesheet" href="skeleton\normalize.css">
+    <link rel="stylesheet" href="skeleton/skeleton.css">
+    <link rel="stylesheet" href="skeleton/normalize.css">
     <!--add google fonts here-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
     <link rel="stylesheet" href="assets/style.css" />
@@ -17,19 +17,20 @@
         <h1>Music Tier-List API</h1>
     </header>
 
-    <div class="container-fluid">
+    <div class="container u-full-width u-max-full-width">
         <div class="row">
-            <aside class="col-lg-3 bg-dark">
+            <div class="three columns offset-by-one">
                 <h5 class="mt-1">Choose from the following categories: </h5>
-                <div class="form-inline form-group">
+                <div class="">
                     <input class="form-control" type="text" id="search-value" />
                 </div>
 
                 <ul class="list-group searchedHistory "></ul>
-            </aside>
+            </div>
 
-            <div class="col-lg-9">
+            <div class="seven columns offset-by-one u-pull-left">
                 <div id="tier-list" class="card-deck mt-3"></div>
+                <h1>Yessirski Peter is that GUY, Himothy if you will</h1>
             </div>
         </div>
     </div>
@@ -37,7 +38,6 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
         integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="assets/script.js"></script>
 </body>
 
