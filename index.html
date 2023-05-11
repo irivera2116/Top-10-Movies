@@ -14,23 +14,28 @@
 
 <body>
     <header class="container-fluid text-center text-white bg-dark p-2">
-        <h1>Music Tier-List API</h1>
+        <h1>Movie Charts</h1>
     </header>
 
     <div class="container u-full-width u-max-full-width">
         <div class="row">
             <div class="three columns offset-by-one">
                 <h5 class="mt-1">Choose from the following categories: </h5>
-                <div class="">
-                    <input class="form-control" type="text" id="search-value" />
-                </div>
+
+                <button class="row inline" type="text" id="boxOffice">Top Box Office (US)</button>
+                <button class="row inline" type="text" id="movieMeter">Most Popular Movies</button>
+                <button class="row inline" type="text" id="topShows">Most Popular TV Shows </button>
+                <button class="row inline" type="text" id="top-action">Top Rated Action Movies </button>
+                <button class="row inline" type="text" id="top-adventure">Top Rated Adventure Movies </button>
+                <button class="row inline" type="text" id="top-comedy">Top Rated Comedy Movies </button>
+                <button class="row inline" type="text" id="top-horror">Top Rated Horror Movies </button>
+
 
                 <ul class="list-group searchedHistory "></ul>
             </div>
 
             <div class="seven columns offset-by-one u-pull-left">
                 <div id="tier-list" class="card-deck mt-3"></div>
-                <h1>Yessirski Peter is that GUY, Himothy if you will</h1>
             </div>
         </div>
     </div>
