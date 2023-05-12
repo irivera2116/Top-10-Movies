@@ -62,14 +62,14 @@ $(document).ready(function () {
 
         function displayList(data) {
             $("#tier-list").html("<h4 class=\"mt-3\">List: </h4>").append("<div class=\"row\">");
-            console.log("this is:"+data);
+            console.log("this is:" + data);
             console.log(data.results);
             for (var i = 0; i < 10; i++) {
                 songTitle = data.results[i].title;
                 var ranks = $("<h3>").addClass("card-title").text(data.results[i].rank);
                 var titles = $("<p>").addClass("card-text").text(songTitle);
                 //var artists = $("<p>").addClass("card-text").text(data.results[i].artist);
-                var grossAmmount= $("<p>").addClass("card-text").text("gross= "+data.results[i].gross);
+                var grossAmmount = $("<p>").addClass("card-text").text("gross= " + data.results[i].gross);
                 var colFive = $("<div>").addClass("col-md-2.5");
                 var cardFive = $("<div>").addClass("card bg-orange text-black");
                 var cardBodyFive = $("<div>").addClass("card-body p-2");
@@ -84,10 +84,10 @@ $(document).ready(function () {
 
                 console.log(songTitle);
                 //merge together and put on page
-                if (imageUrl===undefined)
-                colFive.append(cardFive.append(cardBodyFive.append(ranks, titles, grossAmmount)));
-                else if(imageUrl)
-                colFive.append(cardFive.append(cardBodyFive.append(ranks, titles, image, grossAmmount)));
+                if (imageUrl === undefined)
+                    colFive.append(cardFive.append(cardBodyFive.append(ranks, titles, grossAmmount)));
+                else if (imageUrl)
+                    colFive.append(cardFive.append(cardBodyFive.append(ranks, titles, image, grossAmmount)));
                 //append card to column, body to card, and other elements to body
                 $("#tier-list .row").append(colFive);
 
@@ -98,6 +98,31 @@ $(document).ready(function () {
 
         }
 
+    }
+    $("#jokes").on("click", function () {
+        getJokes();
+    });
+
+    async function getJokes() {
+        const url = 'https://dad-jokes-api1.p.rapidapi.com/dad_jokes';
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '6ddeaa4102mshaf5365c4cdef8edp1a1001jsn1f73ecd0c913',
+                'X-RapidAPI-Host': 'dad-jokes-api1.p.rapidapi.com'
+            }
+        };
+
+        try {
+            const response = await fetch(url, options);
+            const result = await response.text();
+            console.log(result);
+            var joke=$("<p>").addClass("card-text").text(result);
+            $("#jokes").html("").append(joke);
+        } catch (error) {
+            console.error(error);
+        }
+        
     }
 });
 
