@@ -55,10 +55,10 @@ The files used for this webpage are organized as follows:
 - `README.md`: Documentation file describing the project.
 
 # Contributors 
-Issaac Rivera Github: https://github.com/irivera2116
-Justin Hudson Github: https://github.com/jxhudson
-Hussein Chebli Github: https://github.com/hkchebli 
-Nigel Watkins Github: https://github.com/nigeldwatkins
+<br>Issaac Rivera Github: https://github.com/irivera2116
+<br>Justin Hudson Github: https://github.com/jxhudson
+<br>Hussein Chebli Github: https://github.com/hkchebli 
+<br>Nigel Watkins Github: https://github.com/nigeldwatkins
 
 # License
 
