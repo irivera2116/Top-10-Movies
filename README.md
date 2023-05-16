@@ -10,7 +10,7 @@ This webpage displays information about the top-rated movies and TV shows in <br
 Once the user clicks on the category, the page displays a list of 10 titles and their ranks, the data that will be used and displayed will be from IMDb's API.
 
 
-# Techologies Used
+# Technologies Used
 This webpage consist of the following technologies:
 <br>1. HTML
 <br>2. CSS (Skeleton CSS and Google Fonts)
