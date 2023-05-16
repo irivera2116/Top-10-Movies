@@ -42,7 +42,7 @@ $(document).ready(function () {
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': '6ddeaa4102mshaf5365c4cdef8edp1a1001jsn1f73ecd0c913',
+                'X-RapidAPI-Key': 'fdfbf172d2mshdc329b2d91f0a6ep1fca37jsn527ac717967f',
                 'X-RapidAPI-Host': 'imdb-charts.p.rapidapi.com'
             }
         };
@@ -129,8 +129,9 @@ $(document).ready(function () {
         try {
             const response = await fetch(url, options);
             const result = await response.text();
-            console.log(result);
-            var joke = $("<p>").addClass("card-text").text(result);
+            var resultLenth=result.length-3;
+            var jokeEl=result.slice(9,resultLenth);
+            var joke = $("<p>").addClass("card-text").text(jokeEl);
             $("#jokes").html("").append(joke);
         } catch (error) {
             console.error(error);
