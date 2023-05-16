@@ -46,6 +46,8 @@ https://codepen.io/alvarotrigo/pen/PoKMyNO
 
 https://rapidapi.com/spicyapis/api/imdb-charts
 
+https://rapidapi.com/sfehqlfsau/api/dad-jokes-api1/
+
 
 # API Usage
 
