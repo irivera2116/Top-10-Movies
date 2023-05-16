@@ -23,9 +23,9 @@ This webpage consist of the following technologies:
 <br>3. Click a category to display the list of titles.
 <br> You will need an internt connection to access the IMDb API and fetch the data.
 
-# Preview 
-<img width="1440" alt="Screenshot 2023-05-15 at 8 40 41 PM" src="https://github.com/irivera2116/Top-10-Movies/assets/128034266/8a96e238-b3da-4504-a0fa-ce4e4ffbfc34">
 
+# Presentaion
+<img src="./assets/presentation.gif"/>
 
 
 https://github.com/irivera2116/Top-10-Movies/assets/128034266/63c752a3-35ec-49ae-a1d7-6b28bdd056c0
