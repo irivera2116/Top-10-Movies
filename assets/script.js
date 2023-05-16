@@ -46,21 +46,34 @@ $(document).ready(function () {
                 'X-RapidAPI-Host': 'imdb-charts.p.rapidapi.com'
             }
         };
-        try {
-            const getMovies = async () => {
-                const response = await fetch(url, options);
-                const result = await response.json();
-                localStorage.setItem("searchedHistory", result);
-                console.log(result);
-                return result;
 
+        const getMovies = async () => {
+            const savedResult = localStorage.getItem("getMovies" + userChoice);
+            if (savedResult) {
+                return savedResult;
             }
-            getMovies().then(displayList);
-        } catch (error) {
-            console.error(error);
+            const response = await fetch(url, options);
+            if (!response.ok) {
+                throw new Error("Check API key");
+            }
+
+            const result = await response.json();
+            localStorage.setItem("getMovies" + userChoice, result);
+            console.log(result);
+            return result;
+
+
         }
+        getMovies().catch(error => {
+            console.error(error.message);
+            return false;
+        })
+            .then(displayList);
 
         function displayList(data) {
+            if (!data) {
+                return;
+            }
             $("#tier-list").html("<h4 class=\"mt-3\">List: </h4>").append("<div class=\"row\">");
             console.log("this is:" + data);
             console.log(data.results);
@@ -117,12 +130,12 @@ $(document).ready(function () {
             const response = await fetch(url, options);
             const result = await response.text();
             console.log(result);
-            var joke=$("<p>").addClass("card-text").text(result);
+            var joke = $("<p>").addClass("card-text").text(result);
             $("#jokes").html("").append(joke);
         } catch (error) {
             console.error(error);
         }
-        
+
     }
 });
 
