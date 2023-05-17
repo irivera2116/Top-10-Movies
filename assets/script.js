@@ -48,9 +48,12 @@ $(document).ready(function () {
         };
 
         const getMovies = async () => {
-            const savedResult = localStorage.getItem("getMovies" + userChoice);
+            const storeKey = "getMovies" + userChoice;
+            console.log(storeKey);
+            const savedResult = localStorage.getItem(storeKey);
+            console.log(savedResult);
             if (savedResult) {
-                return savedResult;
+                return JSON.parse(savedResult);
             }
             const response = await fetch(url, options);
             if (!response.ok) {
@@ -58,7 +61,7 @@ $(document).ready(function () {
             }
 
             const result = await response.json();
-            localStorage.setItem("getMovies" + userChoice, result);
+            localStorage.setItem(storeKey, JSON.stringify(result));
             console.log(result);
             return result;
 
@@ -72,40 +75,60 @@ $(document).ready(function () {
 
         function displayList(data) {
             if (!data) {
+                console.log("something is worng");
                 return;
             }
-            $("#tier-list").html("<h4 class=\"mt-3\">List: </h4>").append("<div class=\"row\">");
+
             console.log("this is:" + data);
             console.log(data.results);
+
+            var movieRow = $("<div class=\"row\">");
+
             for (var i = 0; i < 10; i++) {
-                songTitle = data.results[i].title;
-                var ranks = $("<h3>").addClass("card-title").text(data.results[i].rank);
-                var titles = $("<p>").addClass("card-text").text(songTitle);
-                //var artists = $("<p>").addClass("card-text").text(data.results[i].artist);
-                var grossAmmount = $("<p>").addClass("card-text").text("gross= " + data.results[i].gross);
-                var colFive = $("<div>").addClass("col-md-2.5");
-                var cardFive = $("<div>").addClass("card bg-orange text-black");
+                var mediaRank = data.results[i].rank;
+                var songTitle = data.results[i].title;
+                var imageUrl = data.results[i].img;
+                var mediaGross = data.results[i].gross;
+
+                var metaData = [];
+
+                if (mediaRank) {
+                    var ranks = $("<h3>").addClass("card-title").text(mediaRank);
+                    metaData.push(ranks);
+                }
+
+                if (songTitle) {
+                    var titles = $("<p>").addClass("card-text").text(songTitle);
+                    metaData.push(titles);
+                }
+
+                if (imageUrl) {
+                    var image = new Image();
+                    image.style.width = '100px';
+                    image.style.height = 'auto';
+                    image.src = imageUrl;
+
+                    metaData.push(image);
+                }
+
+                if (mediaGross) {
+                    var grossAmmount = $("<p>").addClass("card-text").text("gross= " + mediaGross);
+                    metaData.push(grossAmmount);
+                }
+
+                var cardBody = $("<div>").addClass("card bg-orange text-black");
                 var cardBodyFive = $("<div>").addClass("card-body p-2");
 
-                var imageUrl = data.results[i].img;
+                movieRow.append(cardBody.append(cardBodyFive.append(...metaData)));
 
-                var image = new Image();
-                image.style.width = '100px';
-                image.style.height = 'auto';
-                image.src = imageUrl;
+
 
 
                 console.log(songTitle);
-                //merge together and put on page
-                if (imageUrl === undefined)
-                    colFive.append(cardFive.append(cardBodyFive.append(ranks, titles, grossAmmount)));
-                else if (imageUrl)
-                    colFive.append(cardFive.append(cardBodyFive.append(ranks, titles, image, grossAmmount)));
-                //append card to column, body to card, and other elements to body
-                $("#tier-list .row").append(colFive);
 
             }
-
+            movieRow.addClass("col-md-2.5");
+            $("#tier-list").html("<h4 class=\"mt-3\">List: </h4>").append(movieRow);
 
 
 
@@ -128,10 +151,10 @@ $(document).ready(function () {
 
         try {
             const response = await fetch(url, options);
-            const result = await response.text();
-            var resultLenth=result.length-3;
-            var jokeEl=result.slice(9,resultLenth);
-            var joke = $("<p>").addClass("card-text").text(jokeEl);
+            const result = await response.json();
+            console.log(result);
+
+            var joke = $("<p>").addClass("card-text").text(result.joke);
             $("#jokes").html("").append(joke);
         } catch (error) {
             console.error(error);
