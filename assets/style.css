@@ -16,20 +16,19 @@
     -webkit-text-fill-color: transparent;
     animation: textclip 2s linear infinite;
     /*display: inline-block;*/
-    font-size: 80px;
+    font-size: 40px;
 }
 
 
 body {
     background-color: #a3a3a3;
     font-family: "Audiowide", sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     color: #313131;
 }
 
-h4 {
-    padding: 25px;
-
+button {
+    display: block;
 }
 
 footer {
@@ -38,9 +37,11 @@ footer {
 }
 
 .card-body {
+    
+
     border-style: solid;
     margin: 1%;
-    max-width: 300px;
+    max-width: 250px;
 }
 
 .card-body:hover {
@@ -58,13 +59,37 @@ footer {
 @media (min-width: 400px) {}
 
 /* Larger than phablet (also point when grid becomes active) */
-@media (min-width: 550px) {}
+@media (min-width: 550px) {
+   
+    .row {
+        display: inline-grid;
+    }
+}
 
 /* Larger than tablet */
-@media (min-width: 750px) {}
+@media (min-width: 750px) {
+    h4 {
+        padding: 25px;
+
+    }
+
+    .animate-charcter {
+        font-size: 60px;
+    }
+}
 
 /* Larger than desktop */
-@media (min-width: 1000px) {}
+@media (min-width: 1000px) {
+    .animate-charcter {
+        font-size: 80px;
+    }
+    .row {
+        display: block;
+    }
+    body {
+        font-size: 20px;
+    }
+}
 
 /* Larger than Desktop HD */
 @media (min-width: 1200px) {}
